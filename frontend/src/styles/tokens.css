@@ -1,0 +1,34 @@
+:root {
+  /* Default: Dark Mode */
+  --bg: #0d0e11;
+  --bg2: #14161b;
+  --tx: #f2efe9;
+  --mu: #9a9fa8;
+  --ac: #e4793f;
+  --ac2: #4fd1c5;
+  --status-ok: #4ade80;
+  --status-warn: #fbbf24;
+  --status-bad: #f87171;
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --glow-color: rgba(228, 121, 63, 0.15);
+  --glow-teal: rgba(79, 209, 197, 0.12);
+  --grid-line: rgba(255, 255, 255, 0.035);
+}
+
+html.light, :root[data-theme="light"] {
+  --bg: #f7f3ec;
+  --bg2: #efe9de;
+  --tx: #1b1c1f;
+  --mu: #62666e;
+  --ac: #c85a20;
+  --ac2: #0e8f86;
+  --status-ok: #15803d;
+  --status-warn: #b45309;
+  --status-bad: #b91c1c;
+  --card-bg: rgba(0, 0, 0, 0.035);
+  --card-border: rgba(0, 0, 0, 0.08);
+  --glow-color: rgba(200, 90, 32, 0.12);
+  --glow-teal: rgba(14, 143, 134, 0.1);
+  --grid-line: rgba(0, 0, 0, 0.04);
+}

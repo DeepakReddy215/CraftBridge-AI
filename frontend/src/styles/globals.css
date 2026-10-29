@@ -1,0 +1,96 @@
+@import './tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    border-color: var(--card-border);
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--tx);
+    font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Background Grid Texture */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Glassmorphism Card Style */
+.craft-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 22px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.craft-card:hover {
+  border-color: rgba(228, 121, 63, 0.28);
+  box-shadow: 0 10px 30px -10px var(--glow-color);
+}
+
+/* Bridge Arc Path Animation */
+@keyframes drawArc {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-arc-draw {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 0;
+  animation: drawArc 2.4s ease-out forwards;
+}
+
+/* Shimmer animation for server wake-up & skeleton */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+.animate-shimmer {
+  animation: shimmer 1.8s infinite linear;
+}
+
+/* Pulsing radar dot */
+@keyframes radarPing {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.4); opacity: 0; }
+  100% { transform: scale(0.95); opacity: 0; }
+}
+
+.animate-radar {
+  animation: radarPing 2s infinite cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* Large touch targets min 44px */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
